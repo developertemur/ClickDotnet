@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ClickDotnet.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]/[action]")]
 public class HomeController : ControllerBase
 {
 
@@ -17,12 +17,13 @@ public class HomeController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Prepare()
     {
-        Console.WriteLine("Preparation...");
+        _logger.LogWarning("Preparation...");
         return await Task.FromResult(Ok("Preparation!"));
     }
+    [HttpPost]
     public async Task<IActionResult> Complete()
     {
-        Console.WriteLine("Complete");
+        _logger.LogWarning("Complete");
         return await Task.FromResult(Ok("Complete!"));
     }
 }
