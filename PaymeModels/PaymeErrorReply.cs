@@ -1,6 +1,6 @@
 namespace ClickDotnet.PaymeModels;
 
-public class Error
+public class PaymeError
 {
     public int code { get; set; }
     public Message message { get; set; }
@@ -14,8 +14,9 @@ public class Message
     public string en { get; set; }
 }
 
-public class Root
+public class PaymeErrorReply
 {
-    public Error error { get; set; }
+    public string jsonrpc { get; set; }= "2.0";
+    public PaymeError error { get; set; }
     public int id { get; set; }
 }
